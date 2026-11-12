@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echolade - Text to Speech</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <header>
+      <h1>Echolade<span>.</span></h1>
+      <p>Turn your words into speech.</p>
+    </header>
+
+    <section class="card">
+      <label for="textInput">Enter your text</label>
+
+      <textarea
+        id="textInput"
+        placeholder="Type or paste your text here..."
+      ></textarea>
+
+      <div class="text-info">
+        <span id="charCount">0 characters</span>
+        <button id="clearBtn">Clear text</button>
+      </div>
+
+      <div class="settings">
+        <div>
+          <label for="voiceSelect">Voice</label>
+          <select id="voiceSelect"></select>
+        </div>
+
+        <div>
+          <label for="rate">Speech speed</label>
+          <input type="range" id="rate"
+            min="0.5" max="2" step="0.1" value="1">
+          <span id="rateValue">1x</span>
+        </div>
+
+        <div>
+          <label for="pitch">Pitch</label>
+          <input type="range" id="pitch"
+            min="0.5" max="2" step="0.1" value="1">
+          <span id="pitchValue">1</span>
+        </div>
+
+        <div>
+          <label for="volume">Volume</label>
+          <input type="range" id="volume"
+            min="0" max="1" step="0.1" value="1">
+          <span id="volumeValue">100%</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="speakBtn" class="primary">
+          ▶ Speak
+        </button>
+
+        <button id="pauseBtn">Ⅱ Pause</button>
+        <button id="resumeBtn">▶ Resume</button>
+        <button id="stopBtn">■ Stop</button>
+      </div>
+
+      <p id="status">Ready to convert your text.</p>
+    </section>
+
+    <footer>
+      Built with JavaScript and Web Speech API.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

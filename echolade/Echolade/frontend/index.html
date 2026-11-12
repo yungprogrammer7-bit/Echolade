@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="echolade-token" content="__ECHOLADE_TOKEN__">
+  <title>Echolade</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script src="/js/theme-init.js"></script>
+  <link rel="stylesheet" href="/css/themes.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+<svg width="0" height="0" class="sr-only" aria-hidden="true" focusable="false">
+  <symbol id="i-studio" viewBox="0 0 24 24"><path d="M2 10v3M6 6v11M10 3v18M14 8v7M18 5v13M22 10v3"/></symbol>
+  <symbol id="i-voices" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path class="icon-fill" d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5Z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><rect class="icon-fill" x="6" y="4" width="4.5" height="16" rx="1.2"/><rect class="icon-fill" x="13.5" y="4" width="4.5" height="16" rx="1.2"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6M10 11v6M14 11v6"/></symbol>
+  <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect class="icon-fill" x="5" y="5" width="14" height="14" rx="2.5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+</svg>
+
+<div class="app">
+  <aside class="sidebar" aria-label="Main">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M7.5 8.5v7M16.5 8.5v7M3 11v2M21 11v2"/></svg></div>
+      <span class="brand-name">Echolade</span>
+    </div>
+    <nav class="nav">
+      <a href="#/studio" data-nav="studio" title="Studio"><svg class="icon"><use href="#i-studio"/></svg><span>Studio</span></a>
+      <a href="#/voices" data-nav="voices" title="Voice library"><svg class="icon"><use href="#i-voices"/></svg><span>Voice library</span></a>
+      <a href="#/history" data-nav="history" title="Audio history"><svg class="icon"><use href="#i-history"/></svg><span>History</span></a>
+      <a href="#/settings" data-nav="settings" title="Settings"><svg class="icon"><use href="#i-settings"/></svg><span>Settings</span></a>
+      <a href="#/help" data-nav="help" title="Help"><svg class="icon"><use href="#i-help"/></svg><span>Help</span></a>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="status-line" title="Speech engine status"><span class="dot" id="engineDot"></span><span class="label-text" id="engineText">Checking…</span></div>
+      <div class="status-line"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span class="label-text">Runs on this computer</span></div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <h1 id="viewTitle">Studio</h1>
+      <div class="topbar-actions">
+        <button class="btn btn-ghost btn-icon" id="themeBtn" aria-label="Change theme" title="Change theme"><svg class="icon"><use id="themeIcon" href="#i-monitor"/></svg></button>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+      <!-- ===================== STUDIO ===================== -->
+      <section class="view" id="view-studio" data-view="studio" aria-label="Studio">
+        <div class="studio">
+          <div class="studio-main">
+            <div class="banner warn" id="setupBanner" hidden role="alert">
+              <svg class="icon"><use href="#i-alert"/></svg>
+              <div><strong>The speech model isn’t installed yet</strong><span id="setupText"></span></div>
+            </div>
+            <div class="card editor-card">
+              <div class="editor-head">
+                <input id="projectName" class="title-input" type="text" maxlength="80" value="Untitled voiceover" aria-label="Name of this audio">
+                <div class="editor-tools">
+                  <button class="btn btn-ghost btn-sm" id="importBtn"><svg class="icon"><use href="#i-upload"/></svg>Import</button>
+                  <input type="file" id="importFile" accept=".txt,.md,.markdown,text/plain" hidden>
+                  <button class="btn btn-ghost btn-sm" id="sampleBtn">Sample</button>
+                  <button class="btn btn-ghost btn-sm" id="clearBtn">Clear</button>
+                </div>
+              </div>
+              <textarea id="script" spellcheck="true" aria-label="Script" placeholder="Paste or type what you want to hear…&#10;&#10;Separate paragraphs with a blank line. Echolade pauses between them."></textarea>
+              <div class="editor-foot">
+                <div class="stats" aria-live="off">
+                  <span id="stWords">0 words</span><span id="stChars">0 characters</span><span id="stParas">0 paragraphs</span><span id="stDur">Estimated — </span>
+                </div>
+                <div class="foot-actions">
+                  <span class="muted" id="draftState">Draft saved on this device</span>
+                  <button class="btn btn-primary btn-lg" id="generateBtn"><svg class="icon"><use href="#i-sparkle"/></svg><span id="generateLabel">Generate</span><kbd>Ctrl ↵</kbd></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="inspector" aria-label="Voice and export settings">
+            <div class="card panel">
+              <h2 class="panel-title">Voice</h2>
+              <button class="voice-card" id="voiceCard" aria-haspopup="dialog">
+                <span class="avatar" id="voiceAvatar">AH</span>
+                <span class="meta"><span class="name" id="voiceName">Heart</span><br><span class="sub" id="voiceSub">American English · female</span></span>
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </button>
+              <div class="field">
+                <div class="field-row"><label class="label" for="speed">Speed</label><span class="value" id="speedOut">1.00×</span></div>
+                <input type="range" id="speed" min="0.6" max="1.5" step="0.05" value="1">
+                <div class="range-scale"><span>Slower</span><span>Normal</span><span>Faster</span></div>
+              </div>
+              <div class="field">
+                <div class="field-row"><label class="label" for="pause">Paragraph pause</label><span class="value" id="pauseOut">0.7 s</span></div>
+                <input type="range" id="pause" min="0" max="2000" step="100" value="700">
+              </div>
+              <div class="field">
+                <div class="field-row"><label class="label" for="volume">Volume</label><span class="value" id="volumeOut">0 dB</span></div>
+                <input type="range" id="volume" min="-12" max="6" step="1" value="0">
+                <p class="help">Loud settings are limited automatically so audio never clips.</p>
+              </div>
+            </div>
+
+            <div class="card panel">
+              <h2 class="panel-title">Export</h2>
+              <div class="field">
+                <span class="label" id="fmtLabel">Format</span>
+                <div class="seg block" role="radiogroup" aria-labelledby="fmtLabel">
+                  <label><input type="radio" name="format" value="mp3"><span>MP3</span></label>
+                  <label><input type="radio" name="format" value="wav"><span>WAV</span></label>
+                </div>
+              </div>
+              <details class="more">
+                <summary><span>Advanced</span><svg class="icon"><use href="#i-chevron"/></svg></summary>
+                <div class="field" id="bitrateField"><label class="label" for="bitrate">MP3 quality</label>
+                  <select id="bitrate"><option value="96">96 kbps · smallest</option><option value="128">128 kbps</option><option value="192">192 kbps · recommended</option><option value="256">256 kbps · best</option></select></div>
+                <div class="field"><label class="label" for="sampleRate">Sample rate</label>
+                  <select id="sampleRate"><option value="24000">24 kHz · native</option><option value="44100">44.1 kHz</option><option value="48000">48 kHz</option></select></div>
+                <div class="field"><label class="label" for="channels">Channels</label>
+                  <select id="channels"><option value="1">Mono · native</option><option value="2">Stereo</option></select>
+                  <p class="help">The voice is mono. Higher rates and stereo add file size, not quality.</p></div>
+              </details>
+            </div>
+
+            <div class="card panel">
+              <h2 class="panel-title">Performance</h2>
+              <div class="field"><label class="label" for="profile">Profile</label><select id="profile"></select>
+                <p class="help" id="profileHelp"></p></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ===================== VOICES ===================== -->
+      <section class="view" id="view-voices" data-view="voices" hidden aria-label="Voice library">
+        <div id="voicePage"></div>
+      </section>
+
+      <!-- ===================== HISTORY ===================== -->
+      <section class="view" id="view-history" data-view="history" hidden aria-label="Audio history">
+        <div class="toolbar">
+          <div class="search"><svg class="icon"><use href="#i-search"/></svg><input type="search" id="historySearch" placeholder="Search your audio" aria-label="Search history"></div>
+          <span class="muted" id="historyCount"></span>
+        </div>
+        <div id="historyList"></div>
+      </section>
+
+      <!-- ===================== SETTINGS ===================== -->
+      <section class="view" id="view-settings" data-view="settings" hidden aria-label="Settings">
+        <div class="stack">
+          <div class="card section">
+            <h2>Appearance</h2><p class="lead">Echolade follows your computer’s theme unless you choose one.</p>
+            <div class="seg" role="radiogroup" aria-label="Theme">
+              <label><input type="radio" name="theme" value="system"><span>System</span></label>
+              <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+              <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+            </div>
+          </div>
+
+          <div class="card section">
+            <h2>Performance</h2>
+            <p class="lead">Echolade detects your hardware and picks settings for you. Nothing here is required.</p>
+            <div class="profile-grid" id="profileGrid" role="radiogroup" aria-label="Performance profile"></div>
+            <div class="setting-row" id="customRow" hidden><div class="l"><span class="label">CPU threads</span><span class="help">How many threads speech generation may use.</span></div><input type="number" id="customThreads" min="1" max="64" class="num"></div>
+            <div class="setting-row"><div class="l"><span class="label">Keep the model ready at start-up</span><span class="help">Loads the speech model when Echolade starts so the first generation is quicker. Uses memory while running.</span></div><label class="switch"><input type="checkbox" id="warmup"><span class="track"></span></label></div>
+            <div class="setting-row" id="accelRow"><div class="l"><span class="label">Hardware acceleration</span><span class="help" id="accelHelp"></span></div><label class="switch"><input type="checkbox" id="accel"><span class="track"></span></label></div>
+            <div class="setting-row"><div class="l"><span class="label">Measure this computer</span><span class="help">Times a few settings with a short sample and picks the fastest one for Automatic. Takes under a minute.</span></div><button class="btn" id="benchBtn">Run benchmark</button></div>
+            <div id="benchResult" hidden></div>
+          </div>
+
+          <div class="card section">
+            <h2>Your computer</h2><p class="lead">What Echolade detected. “Unknown” means it could not be read.</p>
+            <dl class="kv" id="hwList"></dl>
+          </div>
+
+          <div class="card section">
+            <h2>Diagnostics</h2>
+            <p class="lead">Measured on this computer. Real-time factor (RTF) is generation time ÷ audio length; below 1.0 is faster than playback.</p>
+            <div id="diagBody"></div>
+          </div>
+
+          <div class="card section">
+            <h2>Storage</h2>
+            <div id="storageBody"></div>
+          </div>
+
+          <div class="card section">
+            <h2>Privacy</h2>
+            <p class="lead">Your text and audio never leave this computer.</p>
+            <dl class="kv" id="privacyList"></dl>
+            <div class="setting-row"><div class="l"><span class="label">Verify model files</span><span class="help">Checks the downloaded model against its published checksum.</span></div><button class="btn" id="verifyBtn">Verify</button></div>
+            <div id="verifyResult"></div>
+          </div>
+
+          <div class="card section">
+            <h2>About</h2>
+            <dl class="kv" id="aboutList"></dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== HELP ===================== -->
+      <section class="view" id="view-help" data-view="help" hidden aria-label="Help">
+        <div class="stack">
+          <div class="card section"><h2>Getting started</h2><p class="lead">From text to audio in three steps.</p>
+            <ol class="steps">
+              <li><div><strong>Add your script.</strong><br><span class="muted">Type, paste, or import a .txt or .md file. Blank lines mark paragraphs.</span></div></li>
+              <li><div><strong>Pick a voice.</strong><br><span class="muted">Open the voice card to browse, preview and favourite voices in nine languages.</span></div></li>
+              <li><div><strong>Generate.</strong><br><span class="muted">Audio is created on this computer. Press play in the bar below, then download it or find it later in History.</span></div></li>
+            </ol></div>
+          <div class="card section"><h2>Keyboard shortcuts</h2>
+            <dl class="kv"><dt><kbd>Ctrl</kbd> <kbd>Enter</kbd></dt><dd>Generate audio (⌘ Enter on Mac)</dd><dt><kbd>Space</kbd></dt><dd>Play or pause (when you are not typing)</dd><dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Seek 5 seconds while the waveform is focused</dd><dt><kbd>Ctrl</kbd> <kbd>Z</kbd></dt><dd>Undo in the editor</dd></dl></div>
+          <div class="card section"><h2>Working offline</h2><p class="lead">After the one-time model download, generation needs no internet. Voice previews are also created locally.</p>
+            <p class="muted">Generated files are saved in the <span class="mono">outputs</span> folder next to the app, and your drafts stay in this browser.</p></div>
+          <div class="card section faq"><h2>Troubleshooting</h2>
+            <details><summary>The model isn’t installed</summary><p>Run the setup script (<span class="mono">setup.bat</span> on Windows, <span class="mono">./setup.sh</span> on Linux or macOS), then restart Echolade.</p></details>
+            <details><summary>Generation is slower than playback</summary><p>That is normal on older CPUs. Open Settings → Performance and run the benchmark, or choose the Fastest profile. Close heavy apps while generating. The Diagnostics table shows your real speed.</p></details>
+            <details><summary>MP3 export fails</summary><p>MP3 needs FFmpeg, which is installed with the setup script. Export as WAV (24 kHz, mono) meanwhile.</p></details>
+            <details><summary>I can’t pick pitch or emphasis</summary><p>The Kokoro engine does not support them, so Echolade does not show controls that would do nothing.</p></details>
+            <details><summary>The page says it can’t reach Echolade</summary><p>The Echolade window (terminal) must stay open while you use it. Start it again with <span class="mono">start.bat</span> or <span class="mono">./start.sh</span>.</p></details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== GLOBAL PLAYER / PROGRESS ===================== -->
+    <footer class="dock" id="dock" data-mode="empty" aria-label="Audio player">
+      <button class="dock-play" id="dockPlay" aria-label="Play" disabled><svg class="icon"><use id="dockPlayIcon" href="#i-play"/></svg></button>
+      <div class="dock-center">
+        <div class="dock-line"><span class="dock-title" id="dockTitle">No audio yet</span><span class="dock-sub" id="dockSub"></span></div>
+        <div class="dock-empty" id="dockEmpty">Generate something and it will play here.</div>
+        <div class="wave-wrap" id="waveWrap" hidden>
+          <span class="time" id="timeCur">0:00</span>
+          <div class="wave" id="wave" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><canvas id="waveCanvas"></canvas></div>
+          <span class="time end" id="timeTot">0:00</span>
+        </div>
+        <div class="progress-wrap" id="progressWrap" hidden>
+          <canvas class="seg-strip" id="segStrip" role="img" aria-label="Segment progress"></canvas>
+          <div class="progress-text" id="progressText" role="status"></div>
+        </div>
+        <div class="notice" id="notice" hidden><span class="msg" id="noticeMsg"></span><span class="notice-actions" id="noticeActions"></span></div>
+      </div>
+      <div class="dock-tools" id="dockTools">
+        <button class="btn btn-ghost btn-sm" id="dockRate" title="Playback speed" hidden>1×</button>
+        <button class="btn btn-ghost btn-icon btn-sm" id="dockLoop" aria-pressed="false" title="Repeat" hidden><svg class="icon"><use href="#i-repeat"/></svg></button>
+        <input type="range" class="vol" id="dockVol" min="0" max="1" step="0.05" value="1" aria-label="Player volume" hidden>
+        <a class="btn btn-sm" id="dockDownload" href="#" download hidden><svg class="icon"><use href="#i-download"/></svg>Download</a>
+        <button class="btn btn-sm" id="dockListen" hidden>Listen as it generates</button>
+        <button class="btn btn-sm btn-danger" id="dockCancel" hidden><svg class="icon"><use href="#i-stop"/></svg>Cancel</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<dialog id="confirmDialog"><div class="dlg"><h3 id="confirmTitle"></h3><p id="confirmText"></p><div class="dlg-actions"><button class="btn" id="confirmNo">Cancel</button><button class="btn btn-primary" id="confirmYes">Confirm</button></div></div></dialog>
+<dialog id="renameDialog"><div class="dlg"><h3>Rename</h3><input type="text" id="renameInput" maxlength="80" aria-label="New name"><div class="dlg-actions"><button class="btn" id="renameNo">Cancel</button><button class="btn btn-primary" id="renameYes">Save</button></div></div></dialog>
+<dialog id="voiceDialog"><div class="dlg dlg-wide"><div class="dlg-head"><h3>Choose a voice</h3><button class="btn btn-ghost btn-icon btn-sm" id="voiceClose" aria-label="Close"><svg class="icon"><use href="#i-x"/></svg></button></div><div class="dlg-body" id="voicePicker"></div></div></dialog>
+
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>

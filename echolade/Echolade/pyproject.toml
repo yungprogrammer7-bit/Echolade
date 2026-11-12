@@ -1,0 +1,9 @@
+[project]
+name = "echolade"
+version = "0.1.0"
+description = "Local-first, offline-capable AI text-to-speech"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ───────── Users & sessions ─────────
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String   // Argon2id (auth module is the next build step)
+  name         String?
+  createdAt    DateTime @default(now())
+  sessions     Session[]
+  memberships  ProjectMember[]
+  auditLogs    AuditLog[]
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+// ───────── Projects ─────────
+enum ProjectRole { OWNER EDITOR REVIEWER CLIENT }
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  archivedAt  DateTime?
+  createdAt   DateTime @default(now())
+  members     ProjectMember[]
+  bibles      ProductionBible[]
+  dictionaries PronunciationDictionary[]
+  scripts     Script[]
+}
+
+model ProjectMember {
+  projectId String
+  userId    String
+  role      ProjectRole
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@id([projectId, userId])
+  @@index([userId])
+}
+
+// ───────── Production Bible (immutable versions) ─────────
+model ProductionBible {
+  id        String   @id @default(cuid())
+  projectId String
+  version   Int
+  data      Json     // voices, tone, pacing, loudness targets, localization rules
+  createdBy String?
+  createdAt DateTime @default(now())
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  @@unique([projectId, version])
+}
+
+model PronunciationDictionary {
+  id            String   @id @default(cuid())
+  projectId     String
+  name          String
+  language      String?
+  providerRefs  Json     @default("{}") // e.g. { "elevenlabs": { "id": "...", "versionId": "..." } }
+  createdAt     DateTime @default(now())
+  project       Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  terms         PronunciationTerm[]
+  @@index([projectId])
+}
+
+model PronunciationTerm {
+  id           String @id @default(cuid())
+  dictionaryId String
+  term         String
+  replacement  String?   // alias / respelling
+  phoneme      String?   // only used where the provider supports it
+  dictionary   PronunciationDictionary @relation(fields: [dictionaryId], references: [id], onDelete: Cascade)
+  @@unique([dictionaryId, term])
+}
+
+// ───────── Scripts & segment tracking ─────────
+model Script {
+  id        String   @id @default(cuid())
+  projectId String
+  title     String
+  createdAt DateTime @default(now())
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  segments  GenerationSegment[]
+  @@index([projectId])
+}
+
+enum ApprovalState { DRAFT IN_REVIEW APPROVED REJECTED }
+
+model GenerationSegment {
+  id               String   @id @default(cuid())
+  scriptId         String
+  position         Int
+  text             String
+  textSha256       String   // detect which segments a script edit actually touched
+  speaker          String?
+  approvalState    ApprovalState @default(DRAFT)
+  approvedVersionId String? @unique
+  createdAt        DateTime @default(now())
+  script           Script   @relation(fields: [scriptId], references: [id], onDelete: Cascade)
+  versions         GenerationSegmentVersion[]
+  dependsOn        SegmentDependency[] @relation("dependent")
+  dependedBy       SegmentDependency[] @relation("dependency")
+  @@unique([scriptId, position])
+}
+
+model SegmentDependency {
+  dependentId  String
+  dependencyId String
+  reason       String   // e.g. "context", "pronunciation:<term>", "number-reference"
+  dependent    GenerationSegment @relation("dependent", fields: [dependentId], references: [id], onDelete: Cascade)
+  dependency   GenerationSegment @relation("dependency", fields: [dependencyId], references: [id], onDelete: Cascade)
+  @@id([dependentId, dependencyId, reason])
+}
+
+enum VersionStatus { PENDING GENERATING READY FAILED }
+
+// Every field needed to explain (and reproduce as far as the provider allows) a generation.
+model GenerationSegmentVersion {
+  id                String   @id @default(cuid())
+  segmentId         String
+  status            VersionStatus @default(PENDING)
+  provider          String
+  modelId           String
+  voiceId           String
+  seed              Int?
+  config            Json     // voice settings, context text/ids, dictionary locators (with version ids)
+  providerRequestId String?
+  alignment         Json?    // provider character timings (an estimate, not ground truth)
+  audioKey          String?
+  audioSha256       String?
+  audioSizeBytes    Int?
+  error             String?
+  createdAt         DateTime @default(now())
+  segment           GenerationSegment @relation(fields: [segmentId], references: [id], onDelete: Cascade)
+  usage             ProviderUsage[]
+  @@index([segmentId, createdAt])
+}
+
+model ProviderUsage {
+  id                String   @id @default(cuid())
+  versionId         String
+  provider          String
+  unit              String
+  estimatedQuantity Int          // our estimate
+  actualQuantity    Int?         // filled only from reconciled provider data
+  createdAt         DateTime @default(now())
+  version           GenerationSegmentVersion @relation(fields: [versionId], references: [id], onDelete: Cascade)
+  @@index([versionId])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  target    String?
+  meta      Json?
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  @@index([userId, createdAt])
+}

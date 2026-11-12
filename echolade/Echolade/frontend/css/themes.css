@@ -1,0 +1,86 @@
+/* Design tokens. Light is the default; dark follows the system or the user's choice. */
+:root {
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+
+  --bg: #f5f5f2;
+  --surface: #ffffff;
+  --surface-2: #f0f0ec;
+  --surface-hover: #f7f7f4;
+  --border: #e5e4de;
+  --border-strong: #d2d1c9;
+  --text: #16171a;
+  --text-2: #565a63;
+  --text-3: #868a93;
+  --accent: #2f5bea;
+  --accent-hover: #2549cc;
+  --accent-soft: #e8edfd;
+  --accent-contrast: #ffffff;
+  --success: #12714f;
+  --success-soft: #e2f3ec;
+  --danger: #c4342a;
+  --danger-soft: #fbeae8;
+  --warn: #9a5b00;
+  --warn-soft: #fbf1dc;
+  --wave: #c9ccd4;
+  --shadow-sm: 0 1px 2px rgb(20 20 30 / .06);
+  --shadow-md: 0 8px 28px rgb(20 20 30 / .10), 0 2px 6px rgb(20 20 30 / .05);
+  --ring: 0 0 0 3px rgb(47 91 234 / .28);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d0e11;
+    --surface: #15171c;
+    --surface-2: #111317;
+    --surface-hover: #1a1d23;
+    --border: #252932;
+    --border-strong: #353a46;
+    --text: #ececef;
+    --text-2: #a4a8b2;
+    --text-3: #71767f;
+    --accent: #7b98ff;
+    --accent-hover: #93abff;
+    --accent-soft: #1a2342;
+    --accent-contrast: #0b1020;
+    --success: #4cc79b;
+    --success-soft: #11261f;
+    --danger: #ff7b70;
+    --danger-soft: #2e1714;
+    --warn: #e8b04d;
+    --warn-soft: #2a2110;
+    --wave: #3a3f4b;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / .4);
+    --shadow-md: 0 10px 32px rgb(0 0 0 / .5), 0 2px 6px rgb(0 0 0 / .3);
+    --ring: 0 0 0 3px rgb(123 152 255 / .35);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d0e11;
+  --surface: #15171c;
+  --surface-2: #111317;
+  --surface-hover: #1a1d23;
+  --border: #252932;
+  --border-strong: #353a46;
+  --text: #ececef;
+  --text-2: #a4a8b2;
+  --text-3: #71767f;
+  --accent: #7b98ff;
+  --accent-hover: #93abff;
+  --accent-soft: #1a2342;
+  --accent-contrast: #0b1020;
+  --success: #4cc79b;
+  --success-soft: #11261f;
+  --danger: #ff7b70;
+  --danger-soft: #2e1714;
+  --warn: #e8b04d;
+  --warn-soft: #2a2110;
+  --wave: #3a3f4b;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / .4);
+  --shadow-md: 0 10px 32px rgb(0 0 0 / .5), 0 2px 6px rgb(0 0 0 / .3);
+  --ring: 0 0 0 3px rgb(123 152 255 / .35);
+  color-scheme: dark;
+}
